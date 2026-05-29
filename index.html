@@ -1,151 +1,181 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>六稜祭殺人事件｜オープンチャット案内</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-  <style>
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-    }
+<title>六稜祭殺人事件</title>
 
-    body{
-      font-family: "Hiragino Sans","Yu Gothic",sans-serif;
-      background:
-        radial-gradient(circle at top, #2b0000 0%, #120000 40%, #000000 100%);
-      color:white;
-      min-height:100vh;
-      overflow-x:hidden;
-    }
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&display=swap" rel="stylesheet">
 
-    .bg{
-      position:fixed;
-      inset:0;
-      pointer-events:none;
-      opacity:0.08;
-      background-image:
-        repeating-linear-gradient(
-          90deg,
-          transparent,
-          transparent 40px,
-          red 41px
-        );
-    }
+<style>
 
-    header{
-      text-align:center;
-      padding:50px 20px 30px;
-    }
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
 
-    .subtitle{
-      color:#ff3b3b;
-      letter-spacing:4px;
-      font-size:14px;
-      margin-bottom:15px;
-      animation: flicker 2s infinite;
-    }
+body{
+  font-family:'Noto Sans JP',sans-serif;
+  background:
+    radial-gradient(circle at top,#320000 0%,#120000 40%,#000 100%);
+  color:white;
+  min-height:100vh;
+  overflow-x:hidden;
+}
 
-    h1{
-      font-size: clamp(2.2rem, 7vw, 5rem);
-      margin-bottom:15px;
-      text-shadow:0 0 20px rgba(255,0,0,0.6);
-    }
+/* 背景 */
 
-    .desc{
-      color:#d0d0d0;
-      font-size:1rem;
-      line-height:1.8;
-    }
+.bg{
+  position:fixed;
+  inset:0;
+  background:
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 60px,
+      rgba(255,0,0,0.05) 61px
+    );
+  pointer-events:none;
+}
 
-    .container{
-      width:min(1200px, 92%);
-      margin:auto;
-      padding-bottom:80px;
-    }
+/* タイトル */
 
-    .grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-      gap:24px;
-      margin-top:40px;
-    }
+header{
+  text-align:center;
+  padding:60px 20px 30px;
+}
 
-    .card{
-      background:rgba(255,255,255,0.05);
-      border:1px solid rgba(255,255,255,0.12);
-      backdrop-filter: blur(8px);
-      border-radius:24px;
-      padding:28px 20px;
-      text-align:center;
-      transition:0.25s;
-      position:relative;
-      overflow:hidden;
-    }
+.catch{
+  color:#ff4b4b;
+  font-size:14px;
+  letter-spacing:4px;
+  margin-bottom:18px;
+  animation:flicker 2s infinite;
+}
 
-    .card:hover{
-      transform:translateY(-8px) scale(1.03);
-      border-color:#ff3a3a;
-      box-shadow:0 0 30px rgba(255,0,0,0.25);
-    }
+h1{
+  font-size:clamp(2.5rem,9vw,5rem);
+  font-weight:900;
+  text-shadow:
+    0 0 15px rgba(255,0,0,0.6),
+    0 0 40px rgba(255,0,0,0.3);
+}
 
-    .time{
-      color:#ff7b7b;
-      font-size:0.95rem;
-      margin-bottom:18px;
-      letter-spacing:1px;
-    }
+.desc{
+  margin-top:20px;
+  color:#d5d5d5;
+  line-height:1.9;
+  font-size:1rem;
+}
 
-    .icon{
-      width:95px;
-      height:95px;
-      margin:auto;
-      border-radius:50%;
-      background:
-        linear-gradient(145deg,#ff2a2a,#6a0000);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      font-size:2.4rem;
-      font-weight:bold;
-      margin-bottom:20px;
-      box-shadow:
-        0 0 25px rgba(255,0,0,0.5);
-    }
+/* セクション */
 
-    .btn{
-      display:inline-block;
-      margin-top:8px;
-      text-decoration:none;
-      background:#06c755;
-      color:white;
-      padding:14px 22px;
-      border-radius:14px;
-      font-weight:bold;
-      transition:0.2s;
-      font-size:1rem;
-    }
+.section{
+  width:min(1200px,92%);
+  margin:50px auto;
+}
 
-    .btn:hover{
-      transform:scale(1.05);
-      background:#00e060;
-    }
+.section-title{
+  font-size:1.7rem;
+  margin-bottom:25px;
+  border-left:6px solid #ff2e2e;
+  padding-left:16px;
+  font-weight:800;
+}
 
-    footer{
-      text-align:center;
-      padding:40px 20px 60px;
-      color:#999;
-      font-size:0.9rem;
-    }
+/* グリッド */
 
-    @keyframes flicker{
-      0%{opacity:1;}
-      50%{opacity:0.6;}
-      100%{opacity:1;}
-    }
-  </style>
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:24px;
+}
+
+/* カード */
+
+.card{
+  background:rgba(255,255,255,0.05);
+  border:1px solid rgba(255,255,255,0.12);
+  backdrop-filter:blur(10px);
+  border-radius:28px;
+  padding:28px 18px;
+  text-align:center;
+  transition:0.25s;
+  position:relative;
+  overflow:hidden;
+}
+
+.card:hover{
+  transform:translateY(-8px) scale(1.03);
+  border-color:#ff4444;
+  box-shadow:0 0 30px rgba(255,0,0,0.25);
+}
+
+.time{
+  color:#ff8f8f;
+  font-size:0.95rem;
+  margin-bottom:18px;
+  letter-spacing:1px;
+}
+
+/* アイコン */
+
+.icon{
+  width:105px;
+  height:105px;
+  margin:auto;
+  border-radius:50%;
+  background:
+    linear-gradient(145deg,#ff2b2b,#630000);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:2.7rem;
+  font-weight:900;
+  margin-bottom:22px;
+  box-shadow:
+    0 0 30px rgba(255,0,0,0.5);
+}
+
+/* ボタン */
+
+.btn{
+  display:inline-block;
+  text-decoration:none;
+  background:#06c755;
+  color:white;
+  padding:15px 24px;
+  border-radius:16px;
+  font-weight:700;
+  transition:0.2s;
+  margin-top:10px;
+  font-size:1rem;
+}
+
+.btn:hover{
+  transform:scale(1.07);
+  background:#00e060;
+}
+
+/* フッター */
+
+footer{
+  text-align:center;
+  color:#888;
+  padding:60px 20px;
+  line-height:1.8;
+}
+
+@keyframes flicker{
+  0%{opacity:1;}
+  50%{opacity:0.55;}
+  100%{opacity:1;}
+}
+
+</style>
 </head>
 
 <body>
@@ -153,182 +183,201 @@
 <div class="bg"></div>
 
 <header>
-  <div class="subtitle">
-    ― 事件はここから始まる ―
-  </div>
 
-  <h1>六稜祭殺人事件</h1>
-
-  <p class="desc">
-    自分の時間帯のグループを選択して、<br>
-    LINEオープンチャットへ参加してください。
-  </p>
-</header>
-
-<div class="container">
-
-  <div class="grid">
-
-    <!-- A -->
-    <div class="card">
-      <div class="time">9:30</div>
-      <div class="icon">A</div>
-      <a href="ここにAのリンク" class="btn">OPEN CHAT</a>
-    </div>
-
-    <!-- B -->
-    <div class="card">
-      <div class="time">9:45</div>
-      <div class="icon">B</div>
-      <a href="ここにBのリンク" class="btn">OPEN CHAT</a>
-    </div>
-
-    <!-- C -->
-    <div class="card">
-      <div class="time">10:00</div>
-      <div class="icon">C</div>
-      <a href="ここにCのリンク" class="btn">OPEN CHAT</a>
-    </div>
-
-    <!-- D -->
-    <div class="card">
-      <div class="time">10:15</div>
-      <div class="icon">D</div>
-      <a href="ここにDのリンク" class="btn">OPEN CHAT</a>
-    </div>
-
-    <!-- E -->
-    <div class="card">
-      <div class="time">10:30</div>
-      <div class="icon">E</div>
-      <a href="ここにEのリンク" class="btn">OPEN CHAT</a>
-    </div>
-
-    <!-- F -->
-    <div class="card">
-      <div class="time">10:45</div>
-      <div class="icon">F</div>
-      <a href="ここにFのリンク" class="btn">OPEN CHAT</a>
-    </div>
-
-    <!-- G -->
-    <div class="card">
-      <div class="time">11:00</div>
-      <div class="icon">G</div>
-      <a href="ここにGのリンク" class="btn">OPEN CHAT</a>
-    </div>
-
-    <!-- H -->
-    <div class="card">
-      <div class="time">11:15</div>
-      <div class="icon">H</div>
-      <a href="ここにHのリンク" class="btn">OPEN CHAT</a>
-    </div>
-
-    <!-- I -->
-    <div class="card">
-      <div class="time">11:30</div>
-      <div class="icon">I</div>
-      <a href="ここにIのリンク" class="btn">OPEN CHAT</a>
-    </div>
-
-    <!-- J -->
-    <div class="card">
-      <div class="time">11:45</div>
-      <div class="icon">J</div>
-      <a href="ここにJのリンク" class="btn">OPEN CHAT</a>
-    </div>
-
-    <!-- K -->
-    <div class="card">
-      <div class="time">12:00</div>
-      <div class="icon">K</div>
-      <a href="ここにKのリンク" class="btn">OPEN CHAT</a>
-    </div>
-
-    <!-- L -->
-    <div class="card">
-      <div class="time">12:15</div>
-      <div class="icon">L</div>
-      <a href="ここにLのリンク" class="btn">OPEN CHAT</a>
-    </div>
-
-    <!-- M -->
-    <div class="card">
-      <div class="time">13:00</div>
-      <div class="icon">M</div>
-      <a href="ここにMのリンク" class="btn">OPEN CHAT</a>
-    </div>
-
-    <!-- N -->
-    <div class="card">
-      <div class="time">13:15</div>
-      <div class="icon">N</div>
-      <a href="ここにNのリンク" class="btn">OPEN CHAT</a>
-    </div>
-
-    <!-- Ø -->
-    <div class="card">
-      <div class="time">13:30</div>
-      <div class="icon">Ø</div>
-      <a href="ここにØのリンク" class="btn">OPEN CHAT</a>
-    </div>
-
-    <!-- P -->
-    <div class="card">
-      <div class="time">13:45</div>
-      <div class="icon">P</div>
-      <a href="ここにPのリンク" class="btn">OPEN CHAT</a>
-    </div>
-
-    <!-- Q -->
-    <div class="card">
-      <div class="time">14:00</div>
-      <div class="icon">Q</div>
-      <a href="ここにQのリンク" class="btn">OPEN CHAT</a>
-    </div>
-
-    <!-- R -->
-    <div class="card">
-      <div class="time">14:15</div>
-      <div class="icon">R</div>
-      <a href="ここにRのリンク" class="btn">OPEN CHAT</a>
-    </div>
-
-    <!-- S -->
-    <div class="card">
-      <div class="time">14:30</div>
-      <div class="icon">S</div>
-      <a href="ここにSのリンク" class="btn">OPEN CHAT</a>
-    </div>
-
-    <!-- T -->
-    <div class="card">
-      <div class="time">14:45</div>
-      <div class="icon">T</div>
-      <a href="ここにTのリンク" class="btn">OPEN CHAT</a>
-    </div>
-
-    <!-- U -->
-    <div class="card">
-      <div class="time">15:00</div>
-      <div class="icon">U</div>
-      <a href="ここにUのリンク" class="btn">OPEN CHAT</a>
-    </div>
-
-    <!-- V -->
-    <div class="card">
-      <div class="time">15:15</div>
-      <div class="icon">V</div>
-      <a href="ここにVのリンク" class="btn">OPEN CHAT</a>
-    </div>
-
-  </div>
+<div class="catch">
+― 事件はここから始まる ―
 </div>
 
+<h1>六稜祭殺人事件</h1>
+
+<p class="desc">
+自分の整理券グループを選択して、<br>
+LINEオープンチャットへ参加してください。
+</p>
+
+</header>
+
+<!-- 午前Ⅰ -->
+
+<section class="section">
+
+<h2 class="section-title">午前Ⅰ</h2>
+
+<div class="grid">
+
+<div class="card">
+<div class="time">9:30</div>
+<div class="icon">A</div>
+<a class="btn" href="https://line.me/ti/g2/qXbvn3kUZiBIo7rF7pfmKro3hbLiyenFZQQC8Q?utm_source=invitation&utm_medium=link_copy&utm_campaign=default">OPEN CHAT</a>
+</div>
+
+<div class="card">
+<div class="time">9:45</div>
+<div class="icon">B</div>
+<a class="btn" href="https://line.me/ti/g2/UaU9_inxmBVA44zBpQl4X6OeWo0FElfW0NEdeA?utm_source=invitation&utm_medium=link_copy&utm_campaign=default">OPEN CHAT</a>
+</div>
+
+<div class="card">
+<div class="time">10:00</div>
+<div class="icon">C</div>
+<a class="btn" href="https://line.me/ti/g2/c-ZvPrKKU6cmeIDEwaK-4kHR91FEVCJk8H-IqQ?utm_source=invitation&utm_medium=link_copy&utm_campaign=default">OPEN CHAT</a>
+</div>
+
+<div class="card">
+<div class="time">10:15</div>
+<div class="icon">D</div>
+<a class="btn" href="https://line.me/ti/g2/Isfb7iJC1ezNfFJG5tE9DWbcbgL_AvJWkpsmGg?utm_source=invitation&utm_medium=link_copy&utm_campaign=default">OPEN CHAT</a>
+</div>
+
+<div class="card">
+<div class="time">10:30</div>
+<div class="icon">E</div>
+<a class="btn" href="https://line.me/ti/g2/SQdCWc173igJu3jABGhiwgR6mW7vc8P_ld9HIg?utm_source=invitation&utm_medium=link_copy&utm_campaign=default">OPEN CHAT</a>
+</div>
+
+<div class="card">
+<div class="time">10:45</div>
+<div class="icon">F</div>
+<a class="btn" href="https://line.me/ti/g2/7k6yJ53KpSie2gJKCvfkD-c4fndJQgHB6-FnpA?utm_source=invitation&utm_medium=link_copy&utm_campaign=default">OPEN CHAT</a>
+</div>
+
+</div>
+</section>
+
+<!-- 午前Ⅱ -->
+
+<section class="section">
+
+<h2 class="section-title">午前Ⅱ</h2>
+
+<div class="grid">
+
+<div class="card">
+<div class="time">11:00</div>
+<div class="icon">G</div>
+<a class="btn" href="https://line.me/ti/g2/Db8mb_8NT03Qh0cS8K8pdAuENxHzJabOU4Ar3w?utm_source=invitation&utm_medium=link_copy&utm_campaign=default">OPEN CHAT</a>
+</div>
+
+<div class="card">
+<div class="time">11:15</div>
+<div class="icon">H</div>
+<a class="btn" href="https://line.me/ti/g2/L8op-1Dnbbp98N9GpfVnQQLztjihCVmxuSEwbA?utm_source=invitation&utm_medium=link_copy&utm_campaign=default">OPEN CHAT</a>
+</div>
+
+<div class="card">
+<div class="time">11:30</div>
+<div class="icon">I</div>
+<a class="btn" href="https://line.me/ti/g2/nysGXkREca7Ss_WhF-6eL_bBaj3xB4qWAW5vqQ?utm_source=invitation&utm_medium=link_copy&utm_campaign=default">OPEN CHAT</a>
+</div>
+
+<div class="card">
+<div class="time">11:45</div>
+<div class="icon">J</div>
+<a class="btn" href="https://line.me/ti/g2/akNOKlM6Yc6Y_XNfej-4E_Xw4L1F9Q_X_Gu9Og?utm_source=invitation&utm_medium=link_copy&utm_campaign=default">OPEN CHAT</a>
+</div>
+
+<div class="card">
+<div class="time">12:00</div>
+<div class="icon">K</div>
+<a class="btn" href="https://line.me/ti/g2/8FYXvIGAvS1rMnA4oymfCXJVzvPd37ytHjulZQ?utm_source=invitation&utm_medium=link_copy&utm_campaign=default">OPEN CHAT</a>
+</div>
+
+<div class="card">
+<div class="time">12:15</div>
+<div class="icon">L</div>
+<a class="btn" href="https://line.me/ti/g2/5PPfEq9xnZFpUWUiXKh3PVa2V-vILbpNSJ3GVg?utm_source=invitation&utm_medium=link_copy&utm_campaign=default">OPEN CHAT</a>
+</div>
+
+</div>
+</section>
+
+<!-- 午後Ⅰ -->
+
+<section class="section">
+
+<h2 class="section-title">午後Ⅰ</h2>
+
+<div class="grid">
+
+<div class="card">
+<div class="time">13:00</div>
+<div class="icon">M</div>
+<a class="btn" href="https://line.me/ti/g2/sx1PJCmqke46rWcCkm9zNjWickGmq3m0J_ENIg?utm_source=invitation&utm_medium=link_copy&utm_campaign=default">OPEN CHAT</a>
+</div>
+
+<div class="card">
+<div class="time">13:15</div>
+<div class="icon">N</div>
+<a class="btn" href="https://line.me/ti/g2/oxi394Oym7Ktp5SrhmZmdULnPyQWvwB-2Q6c6Q?utm_source=invitation&utm_medium=link_copy&utm_campaign=default">OPEN CHAT</a>
+</div>
+
+<div class="card">
+<div class="time">13:30</div>
+<div class="icon">Ø</div>
+<a class="btn" href="https://line.me/ti/g2/06NZWa9wsFiBtl2XiZpfpHD7t0Kqrx_WXP8r0g?utm_source=invitation&utm_medium=link_copy&utm_campaign=default">OPEN CHAT</a>
+</div>
+
+<div class="card">
+<div class="time">13:45</div>
+<div class="icon">P</div>
+<a class="btn" href="https://line.me/ti/g2/Ble2nOo2PdUSXC10y8Rc_b4SBeWH-Biebfrxgg?utm_source=invitation&utm_medium=link_copy&utm_campaign=default">OPEN CHAT</a>
+</div>
+
+<div class="card">
+<div class="time">14:00</div>
+<div class="icon">Q</div>
+<a class="btn" href="https://line.me/ti/g2/AIeiWzXDhX-okAzXwOKgzTuw7XC6p-0Xj3X1Qg?utm_source=invitation&utm_medium=link_copy&utm_campaign=default">OPEN CHAT</a>
+</div>
+
+</div>
+</section>
+
+<!-- 午後Ⅱ -->
+
+<section class="section">
+
+<h2 class="section-title">午後Ⅱ</h2>
+
+<div class="grid">
+
+<div class="card">
+<div class="time">14:15</div>
+<div class="icon">R</div>
+<a class="btn" href="https://line.me/ti/g2/SBn_WBy3QjGfyNvXGBV74JrKyjX-ehKumMdkwg?utm_source=invitation&utm_medium=link_copy&utm_campaign=default">OPEN CHAT</a>
+</div>
+
+<div class="card">
+<div class="time">14:30</div>
+<div class="icon">S</div>
+<a class="btn" href="https://line.me/ti/g2/Pbca8dxZtHZA_Kcyr_nnyKrX9ziIqZh5t1eriQ?utm_source=invitation&utm_medium=link_copy&utm_campaign=default">OPEN CHAT</a>
+</div>
+
+<div class="card">
+<div class="time">14:45</div>
+<div class="icon">T</div>
+<a class="btn" href="https://line.me/ti/g2/5h1vo5cs9tLn-qMtRed4VHiTIKknh0NNKkFw_Q?utm_source=invitation&utm_medium=link_copy&utm_campaign=default">OPEN CHAT</a>
+</div>
+
+<div class="card">
+<div class="time">15:00</div>
+<div class="icon">U</div>
+<a class="btn" href="https://line.me/ti/g2/giiUTXuIOi28mLsoAkfk7-Jd44I49vXmqg1i1w?utm_source=invitation&utm_medium=link_copy&utm_campaign=default">OPEN CHAT</a>
+</div>
+
+<div class="card">
+<div class="time">15:15</div>
+<div class="icon">V</div>
+<a class="btn" href="https://line.me/ti/g2/OSoMYXgZpgQCKXmgg1mqkrQa-jodDELYTJZYIQ?utm_source=invitation&utm_medium=link_copy&utm_campaign=default">OPEN CHAT</a>
+</div>
+
+</div>
+</section>
+
 <footer>
-  北野高校 六稜祭 1-1企画<br>
-  「六稜祭殺人事件」
+
+北野高校 六稜祭 1-1企画<br>
+「六稜祭殺人事件」
+
 </footer>
 
 </body>
